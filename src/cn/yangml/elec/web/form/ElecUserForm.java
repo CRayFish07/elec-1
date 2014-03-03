@@ -34,6 +34,20 @@ public class ElecUserForm implements java.io.Serializable {
 	 */
 	private String viewflag;
 	
+	/**
+	 * 使用flag字段
+	 * 判断角色编辑的页面中，该用户是否被选中
+	 *  * 如果 flag = 0，表示该角色不拥有此用户，则页面中用户复选框不被选中
+     *  * 如果 flag = 1，表示该角色拥有此用户，则页面中的用户复选框被选中
+	 */
+	private String flag;
+	
+	public String getFlag() {
+		return flag;
+	}
+	public void setFlag(String flag) {
+		this.flag = flag;
+	}
 	public String getViewflag() {
 		return viewflag;
 	}

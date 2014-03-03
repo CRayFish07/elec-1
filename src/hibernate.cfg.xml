@@ -19,5 +19,7 @@
 		<mapping resource="cn/yangml/elec/domain/ElecCommonMsg.hbm.xml"/>
 		<mapping resource="cn/yangml/elec/domain/ElecSystemDDl.hbm.xml"/>
 		<mapping resource="cn/yangml/elec/domain/ElecUser.hbm.xml"/>
+		<mapping resource="cn/yangml/elec/domain/ElecUserRole.hbm.xml"/>
+		<mapping resource="cn/yangml/elec/domain/ElecRolePopedom.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>

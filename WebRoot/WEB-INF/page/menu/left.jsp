@@ -318,7 +318,7 @@ TH {
 									
 									<TR>
 										<TD class="box05" onmouseover="backgroundColorChange(this,'white');" onmouseout="backgroundColorChange(this,'');">
-											<A class="cl_01" onclick="linkcolorchange(this)" href="${pageContext.request.contextPath }/system/roleIndex.jsp" target="mainFrame">角色管理</A>
+											<A class="cl_01" onclick="linkcolorchange(this)" href="${pageContext.request.contextPath }/system/elecRoleAction_home.do" target="mainFrame">角色管理</A>
 										</TD>
 									</TR>
 									
