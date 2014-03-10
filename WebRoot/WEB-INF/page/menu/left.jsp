@@ -1,10 +1,11 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
-
-
-
-
-
-
+<%@page import="java.util.Hashtable"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+<%
+String popedom = (String)request.getSession().getAttribute("globle_popedom"); 
+Hashtable ht = (Hashtable)request.getSession().getAttribute("globle_role");
+System.out.println(popedom+"  "+ht);
+%>
 <HTML>
 	<HEAD>
 		<TITLE>Left</TITLE>
@@ -148,7 +149,7 @@ TH {
 					<TD vAlign="top" bgColor="#F6F6F6" height="100%">
                      
                      
-                     
+                        <%if(popedom.contains("a") || popedom.contains("b") || popedom.contains("c")){ %>
 						<DIV class="parent" id="KB0Parent">
 							<TABLE cellSpacing="0" cellPadding="0" width="100%" border="0">
 								<TBODY>
@@ -164,13 +165,13 @@ TH {
 						<DIV class="child" id="KB0Child">
 							<TABLE cellSpacing="0" cellPadding="0" width="99%" border="0">
 								<TBODY>
-								   
+								    <%if(popedom.contains("a")){ %>
 									<TR>
 										<TD class="box05" onmouseover="backgroundColorChange(this,'white');" onmouseout="backgroundColorChange(this,'');">
 											<A class="cl_01" onclick="linkcolorchange(this)" href="${pageContext.request.contextPath }/equapment/equapmentIndex.jsp" target="mainFrame">仪器设备管理</A>
 										</TD>
 									</TR>
-									
+									<%}if(popedom.contains("b")){ %>
 									
 									<TR>
 										<TD class="box05" onmouseover="backgroundColorChange(this,'white');" onmouseout="backgroundColorChange(this,'');">
@@ -178,20 +179,20 @@ TH {
 										</TD>
 									</TR>
 									
-									
+									<%}if(popedom.contains("c")){ %>
 									<TR>
 										<TD class="box05" onmouseover="backgroundColorChange(this,'white');" onmouseout="backgroundColorChange(this,'');">
 											<A class="cl_01" onclick="linkcolorchange(this)" href="${pageContext.request.contextPath }/equapment/planIndex.jsp" target="mainFrame">设备购置计划</A>
 										</TD>
 									</TR>
-									
+									<%} %>
 									
 								</TBODY>
 							</TABLE>
 						</DIV>
-                       
-
-                      
+                       <%} %>
+					
+                        <%if(popedom.contains("d")){ %>
 						<DIV class="parent" id="KB1Parent">
 							<TABLE cellSpacing="0" cellPadding="0" width="99%" border="0">
 								<TBODY>
@@ -216,9 +217,9 @@ TH {
 								</TBODY>
 							</TABLE>
 						</DIV>
+                       <%} %>
                       
-                      
-                      
+                      <%if(popedom.contains("e") || popedom.contains("f") || popedom.contains("g")){ %>
 						<DIV class="parent" id="KB2Parent">
 							<TABLE cellSpacing="0" cellPadding="0" width="99%" border="0">
 								<TBODY>
@@ -235,34 +236,33 @@ TH {
 						<DIV class="child" id="KB2Child">
 							<TABLE cellSpacing="0" cellPadding="0" width="99%" border="0">
 								<TBODY>
-								    
+								    <%if(popedom.contains("e")){ %>
 									<TR>
 										<TD class="box05" onmouseover="backgroundColorChange(this,'white');" onmouseout="backgroundColorChange(this,'');">
 											<A class="cl_01" onclick="linkcolorchange(this)" href="${pageContext.request.contextPath }/siteEquapment/siteInfoIndex.jsp" target="mainFrame">站点基本信息</A>
 										</TD>
 									</TR>
-									
+									<%}if(popedom.contains("f")){ %>
 									
 									<TR>
 										<TD class="box05" onmouseover="backgroundColorChange(this,'white');" onmouseout="backgroundColorChange(this,'');">
 											<A class="cl_01" onclick="linkcolorchange(this)" href="${pageContext.request.contextPath }/siteEquapment/siteRunIndex.jsp" target="mainFrame">运行情况</A>
 										</TD>
 									</TR>
-									
+									<%}if(popedom.contains("g")){ %>
 									
 									<TR>
 										<TD class="box05" onmouseover="backgroundColorChange(this,'white');" onmouseout="backgroundColorChange(this,'');">
 											<A class="cl_01" onclick="linkcolorchange(this)" href="${pageContext.request.contextPath }/siteEquapment/siteMaintainIndex.jsp" target="mainFrame">维护情况</A>
 										</TD>
 									</TR>
-								   
+								    <%} %>
 								</TBODY>
 							</TABLE>
 						</DIV>
-                       
-
-
-                      
+                       <%} %>
+ 
+                       <%if(popedom.contains("h")){ %>
 						<DIV class="parent" id="KB3Parent">
 							<TABLE cellSpacing="0" cellPadding="0" width="99%" border="0">
 								<TBODY>
@@ -287,7 +287,7 @@ TH {
 								</TBODY>
 							</TABLE>
 						</DIV>
-                      
+                       <%} %>
  
                    
 						<DIV class="parent" id="KB4Parent">
@@ -307,21 +307,28 @@ TH {
 							<TABLE cellSpacing="0" cellPadding="0" width="99%" border="0">
 								<TBODY>
 								
-								    
+								    <%if(ht.containsKey("1") || ht.containsKey("2")){ %>
 									<TR>
 										<TD class="box05" onmouseover="backgroundColorChange(this,'white');" onmouseout="backgroundColorChange(this,'');">
 											<A class="cl_01" onclick="linkcolorchange(this)" href="${pageContext.request.contextPath }/system/elecUserAction_home.do" target="mainFrame">用户管理</A>
 										</TD>
 									</TR>
+									<%}else{ %>
+									<TR>
+										<TD class="box05" onmouseover="backgroundColorChange(this,'white');" onmouseout="backgroundColorChange(this,'');">
+											<A class="cl_01" onclick="linkcolorchange(this)" href="${pageContext.request.contextPath }/system/elecUserAction_edit.do?userID=${globle_user.userID }&roleflag=1" target="mainFrame">用户管理</A>
+										</TD>
+									</TR>
 									
-									
+									<%} %>
+									<%if(popedom.contains("i")){ %>
 									
 									<TR>
 										<TD class="box05" onmouseover="backgroundColorChange(this,'white');" onmouseout="backgroundColorChange(this,'');">
 											<A class="cl_01" onclick="linkcolorchange(this)" href="${pageContext.request.contextPath }/system/elecRoleAction_home.do" target="mainFrame">角色管理</A>
 										</TD>
 									</TR>
-									
+									<%}if(popedom.contains("j")){ %>
 									
 									
 									<TR>
@@ -329,7 +336,7 @@ TH {
 											<A class="cl_01" onclick="linkcolorchange(this)" href="${pageContext.request.contextPath }/system/elecCommonMsgAction_home.do" target="mainFrame">待办事宜</A>
 										</TD>
 									</TR>
-									
+									<%}if(popedom.contains("k")){ %>
 									
 									
 									<TR>
@@ -337,6 +344,7 @@ TH {
 											<A class="cl_01" onclick="linkcolorchange(this)" href="${pageContext.request.contextPath }/system/elecSystemDDlAction_home.do" target="mainFrame">数据字典维护</A>
 										</TD>
 									</TR>
+									<%} %>
 									
 									<TR>
 										<TD class="box06" onmouseover="backgroundColorChange(this,'white');" onmouseout="backgroundColorChange(this,'');">

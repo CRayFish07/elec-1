@@ -1,6 +1,7 @@
 package cn.yangml.elec.service.impl;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -221,6 +222,62 @@ public class ElecUserServiceImpl implements IElecUserService{
 		String userID = elecUserForm.getUserID();
 		elecUserDao.deleteObjectByIds(userID);
 	}
-	
-
-}
+	/**  
+	* @Name: findElecRoleByLogonName
+	* @Description: 使用登录名获取当前登录名所具有的角色
+	* @Author: 杨明亮（作者）
+	* @Version: V1.00 （版本号）
+	* @Create Date: 2014-03-10 （创建日期）
+	* @Parameters: String name 登录名
+	* @Return: Hashtable<String, String> 存放角色的集合
+	*/
+	public ElecUser findElecUserByLogonName(String name) {
+		String hqlWhere = " and o.logonName = ?";
+		Object [] params = {name};
+		List<ElecUser> list = elecUserDao.findCollectionByConditionNoPage(hqlWhere, params, null);
+		ElecUser elecUser = null;
+		if(list!=null && list.size()>0){
+			elecUser = list.get(0);
+		}
+		return elecUser;
+	}
+	/**  
+	* @Name: findElecPopedomByLogonName
+	* @Description: 使用登录名获取当前登录名所具有的权限
+	* @Author: 杨明亮（作者）
+	* @Version: V1.00 （版本号）
+	* @Create Date: 2014-03-10 （建日期）
+	* @Parameters: String name 登录名
+	* @Return: String 用户存放该用户具有的权限
+	*/
+	public String findElecPopedomByLogonName(String name) {
+		List<Object> list = elecUserDao.findElecPopedomByLogonName(name);
+		StringBuffer buffer = new StringBuffer("");
+		for(int i=0;list!=null && i<list.size();i++){
+			Object object = list.get(i);
+			buffer.append(object.toString());
+		}
+		return buffer.toString();
+	}
+	/**  
+	* @Name: findElecRoleByLogonName
+	* @Description: 使用登录名获取当前登录名所具有的角色
+	* @Author: 杨明亮（作者）
+	* @Version: V1.00 （版本号）
+	* @Create Date: 2014-03-10 （创建日期）
+	* @Parameters: String name 登录名
+	* @Return: Hashtable<String, String> 存放角色的集合
+	*/
+	public Hashtable<String, String> findElecRoleByLogonName(String name) {
+		List<Object[]> list = elecUserDao.findElecRoleByLogonName(name);
+		Hashtable<String, String> ht = null;
+		if(list!=null && list.size()>0){
+			ht = new Hashtable<String, String>();
+			for(int i=0;i<list.size();i++){
+				Object[] object = list.get(i);
+				ht.put(object[0].toString(), object[1].toString());
+			}
+		}
+		return ht;
+	}
+	}

@@ -6,7 +6,7 @@
   	document.Form1.submit();
   }
   </script>
-
+<%String popedom = (String)request.getSession().getAttribute("globle_popedom"); %>
 <HTML>
 	<HEAD>
 		<title>用户管理</title>		
@@ -51,8 +51,10 @@
 					<td class="ta_01" align="right">
 					    <input style="font-size:12px; color:black; height=20;width=80" id="BT_Add" type="button" value="查询" name="BT_find" 
 						 onclick="document.forms[0].submit()">&nbsp;&nbsp;
+						 <%if(popedom.contains("l")){ %>
 						<input style="font-size:12px; color:black; height=20;width=80" id="BT_Add" type="button" value="添加用户" name="BT_Add" 
 						 onclick="openWindow('system/elecUserAction_add.do','700','400')">
+						 <%} %>
 					</td>
 				</tr>
 				<tr>
@@ -90,13 +92,17 @@
 										</td>
 										
 										<td align="center" style="HEIGHT: 22px" align="center" width="10%">																	
+										   <%if(popedom.contains("n")){ %>
 										   <a href="#" onclick="openWindow('system/elecUserAction_edit.do?userID=<s:property value="%{#user.userID}"/>','700','400');">
 										   <img src="${pageContext.request.contextPath }/images/edit.gif" border="0" style="CURSOR:hand"></a>													
+										   <%} %>
 										</td>
 										
 										<td align="center" style="HEIGHT: 22px" align="center" width="10%">
+											<%if(popedom.contains("m")){ %>
 											<a href="system/elecUserAction_delete.do?userID=<s:property value='%{#user.userID}'/>" onclick="return confirm('你确定要删除  <s:property value="%{#user.userName}"/>？')">
 											<img src="${pageContext.request.contextPath }/images/delete.gif" width="16" height="16" border="0" style="CURSOR:hand"></a>												
+											<%} %>
 										</td>
 									</tr>
 								</s:iterator>
