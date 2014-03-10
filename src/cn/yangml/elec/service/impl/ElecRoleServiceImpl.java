@@ -24,7 +24,7 @@ import cn.yangml.elec.domain.ElecRolePopedom;
 import cn.yangml.elec.domain.ElecUserRole;
 import cn.yangml.elec.service.IElecRoleService;
 import cn.yangml.elec.util.XmlObject;
-import cn.yangml.elec.web.action.ElecRoleForm;
+import cn.yangml.elec.web.form.ElecRoleForm;
 import cn.yangml.elec.web.form.ElecUserForm;
 @Transactional(readOnly=true)
 @Service(IElecRoleService.SERVICE_NAME)

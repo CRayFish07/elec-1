@@ -1,4 +1,4 @@
-package cn.yangml.elec.web.action;
+package cn.yangml.elec.web.form;
 /**
  * VO值对象，对应页面表单的属性值
  *

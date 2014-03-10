@@ -3,7 +3,7 @@ package cn.yangml.elec.service;
 import java.util.List;
 
 import cn.yangml.elec.util.XmlObject;
-import cn.yangml.elec.web.action.ElecRoleForm;
+import cn.yangml.elec.web.form.ElecRoleForm;
 import cn.yangml.elec.web.form.ElecUserForm;
 
 public interface IElecRoleService {

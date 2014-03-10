@@ -6,6 +6,7 @@ import cn.yangml.elec.service.IElecRoleService;
 import cn.yangml.elec.service.IElecSystemDDlService;
 import cn.yangml.elec.util.XmlObject;
 import cn.yangml.elec.util.container.ServiceProvider;
+import cn.yangml.elec.web.form.ElecRoleForm;
 import cn.yangml.elec.web.form.ElecSystemDDlForm;
 import cn.yangml.elec.web.form.ElecUserForm;
 
